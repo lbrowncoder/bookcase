@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow&display=swap');
+
+.info {
+    font-family: 'Archivo Narrow', sans-serif;
+    padding-top: 2rem;
+    margin-left: 12rem;
+    margin-right: 12rem;
+}
+
+.form{
+
+    font-family: 'Archivo Narrow', sans-serif;
+    text-align: center;
+    padding-top: 3rem;
+}
+
+.nameId {
+    padding-right: 1rem;
+}
+
+.nametext {
+    padding-right: 10rem;
+}
+
+.ageId {
+    padding-right: 1rem;
+}
