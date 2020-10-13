@@ -8,11 +8,11 @@ import BookList from './components/BookList';
 import About from './pages/About'
 import ReactDOM from 'react-dom';
 import Contact from './pages/Contact';
-import SubmittedForm from './pages/SubmittedForm';
 import Search from './pages/Search';
 
 const App = (props) => {
  const [books, setBooks] = useState(data);
+ const [keyword, setKeyword ] = useState('');
 
  
  function addBook (title, id) {
@@ -20,13 +20,20 @@ const App = (props) => {
     setBooks (newBookList);
      console.log('The book ${title} was clicked')
   }
+
+  async function findBooks (term) {
+      const result = await fetch (`https://www.googleapis.com/books/v1/volumes?q=${term}&filter=paidebooks&print-type=books&projection=lite`)
+      .then(res => res.json());
+      console.log (result)
+      setBooks(result.items)
+  }
  return (
      <>
         <Router>
             <Route exact path="/" render={() => (
             <React.Fragment>
             <Header />
-            <Search />
+            <Search findBooks={findBooks} keyword={keyword} setKeyword={setKeyword} />
             <BookList books={books} addBook={addBook}/>
             </React.Fragment> 
         )}/>
@@ -46,9 +53,6 @@ const App = (props) => {
             </React.Fragment> 
         )}/>
         </Router>
- {/* <div>
-    {books.map(book => <Book addBook={addBook} key={book.id} book={book}/>)}
- </div> */}
  </>
  );
 }
