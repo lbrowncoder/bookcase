@@ -7,7 +7,9 @@ import Header from './components/Header';
 import BookList from './components/BookList';
 import About from './pages/About'
 import ReactDOM from 'react-dom';
-import Contact from './pages/Contact'
+import Contact from './pages/Contact';
+import SubmittedForm from './pages/SubmittedForm';
+import Search from './pages/Search';
 
 const App = (props) => {
  const [books, setBooks] = useState(data);
@@ -24,19 +26,23 @@ const App = (props) => {
             <Route exact path="/" render={() => (
             <React.Fragment>
             <Header />
+            <Search />
             <BookList books={books} addBook={addBook}/>
             </React.Fragment> 
         )}/>
             <Route exact path="/pages/About" render={() => (
             <React.Fragment>
             <Header />
+            <Search />
             <About />
             </React.Fragment> 
         )}/>
             <Route exact path="/pages/Contact" render={() => (
             <React.Fragment>
             <Header />
+            <Search />
             <Contact />
+
             </React.Fragment> 
         )}/>
         </Router>

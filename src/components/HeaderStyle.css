@@ -1,16 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow&display=swap');
 
-h2 {
+.navBar {
     font-family: 'Archivo Narrow', sans-serif;
-    padding-top: 2rem;
-    text-align: center;
-    padding-bottom: 2rem;
-   
+
+    padding-left: 3rem;
 }
 
-p {
-
+.navBar1 {
     font-family: 'Archivo Narrow', sans-serif;
-    padding-right: 10rem;
-    padding-left: 10rem;
+    padding-left: 2rem;
 }
+    
+    

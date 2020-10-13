@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow&display=swap');
+
+.FormBox {
+    padding-top: 5rem;
+    font-family: 'Archivo Narrow', sans-serif;
+    text-align: center;
+    font-size: 1em;
+    padding-right: 2rem;
+}
+
+.MessageBox {
+    padding-bottom: 9rem;
+    padding-right: 9rem;
+}
+
+.Name {
+    padding-left: 2rem;
+}
