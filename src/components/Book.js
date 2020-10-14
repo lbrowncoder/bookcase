@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Button } from 'react-bootstrap';
+
 
 const Book = (props) => {
   let {title, subtitle, authors, description, imageLinks,} = props.book.volumeInfo
@@ -19,8 +21,8 @@ const Book = (props) => {
       </div>
       <img className="pic" src= {imageLinks.thumbnail} alt={props.alt}/>
       <p>{description}</p>   
-      <p>{listPrice && listPrice.amount}</p>
-      <button onClick={() => props.addBook(title, id)}>Add+</button>
+      <p>£{listPrice && listPrice.amount}</p>
+      <Button className="button" onClick={() => props.addBook(title, id)}>Add To Basket</Button>
     </div>
   );
 };

@@ -9,6 +9,8 @@ import About from './pages/About'
 import ReactDOM from 'react-dom';
 import Contact from './pages/Contact';
 import Search from './pages/Search';
+import SubmittedForm from './pages/SubmittedForm';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = (props) => {
  const [books, setBooks] = useState(data);
@@ -22,7 +24,7 @@ const App = (props) => {
   }
 
   async function findBooks (term) {
-      const result = await fetch (`https://www.googleapis.com/books/v1/volumes?q=${term}&filter=paidebooks&print-type=books&projection=lite`)
+      const result = await fetch (`https://www.googleapis.com/books/v1/volumes?q=${term}&filter=paid-ebooks&print-type=books&projection=lite`)
       .then(res => res.json());
       console.log (result)
       setBooks(result.items)
@@ -49,7 +51,12 @@ const App = (props) => {
             <Header />
             <Search />
             <Contact />
-
+            </React.Fragment> 
+        )}/>
+            <Route exact path="/pages/SubmittedForm" render={() => (
+            <React.Fragment>
+            <Header />
+            <SubmittedForm />
             </React.Fragment> 
         )}/>
         </Router>

@@ -31,10 +31,8 @@ const Contact = () => {
             <input className= "MessageBox" type="text" value={Message} onChange={(e) => setMeaagse(e.target.value)} />
           </label>
           <input type="submit" value="Submit" />
-      
         </form>
-        </div>
-      
+        </div>     
       );
       }
 

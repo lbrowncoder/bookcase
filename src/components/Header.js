@@ -7,10 +7,14 @@ import './HeaderStyle.css';
 const Header = () => {
     return (
         <React.Fragment>
-            <h1>My Bookcase</h1>
-            <Link className='navBar1'to="/">Home</Link>
-            <Link className='navBar' to="./pages/About">About</Link>
-            <Link className='navBar'to="./pages/Contact">Contact</Link>
+            <div className='header'>
+            <   Link className='navBar1'to="/">Home</Link>
+                <Link className='navBar' to="./pages/About">About</Link>
+                <Link className='navBar'to="./pages/Contact">Contact</Link>
+            </div>
+            <div>
+                <h1 className='title'>My Bookcase</h1>
+            </div>
         </React.Fragment>    
     )
 }
