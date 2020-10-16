@@ -11,7 +11,8 @@ import Contact from './pages/Contact';
 import Search from './pages/Search';
 import SubmittedForm from './pages/SubmittedForm';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import searchScreen from './pages/searchScreen'
+import SearchScreen from './pages/SearchScreen';
+
 
 const App = (props) => {
  const [books, setBooks] = useState(data);
@@ -27,6 +28,10 @@ const App = (props) => {
     const remainingBooks = [];
      console.log('bookcase')
   }
+
+//   function removeBook () {
+
+//   }
 
   async function findBooks (term) {
       const result = await fetch (`https://www.googleapis.com/books/v1/volumes?q=${term}&filter=paid-ebooks&print-type=books&projection=lite`)
@@ -67,15 +72,13 @@ const App = (props) => {
             <Route path="/bookcase" render={() => (
             <React.Fragment>
             <Header />
-            <BookList books={bookcase} />
+            <BookList books={bookcase} removeBook/>
             </React.Fragment> 
         )}/>
 
-            <Route exact path="/pages/searchScreen" render={() => (
+            <Route exact path="/pages/SearchScreen" render={() => (
             <React.Fragment>
             <Header />
-            <Search />
-            <Contact />
             </React.Fragment> 
         )}/>    
         </Router>

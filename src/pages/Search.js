@@ -1,6 +1,7 @@
 import React from 'react';
 import './SearchStyle.css'
 
+
 function Search (props) {
 
     function handleSubmit (event) {
