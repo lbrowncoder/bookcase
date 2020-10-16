@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'react-bootstrap';
+// import { ScrollView } from 'react-native';
 
 
 const Book = (props) => {
@@ -8,6 +9,16 @@ const Book = (props) => {
     console.log(props.book)
 
    let {id, saleInfo: {listPrice} } = props.book
+
+   let amount = () => {
+     if (props.saleInfo("listPrice")) {
+       let amount = (props.saleInfo.listPrice.amount);
+       return amount; 
+     } else {
+       let amount = 'TBC';
+       return amount;
+     }
+   };
 
 
   return (
@@ -20,9 +31,11 @@ const Book = (props) => {
       <h3>{authors.join(',')}</h3>
       </div>
       <img className="pic" src= {imageLinks.thumbnail} alt={props.alt}/>
-      <p>{description}</p>   
+
+      <p>{description}</p> 
       <p>£{listPrice && listPrice.amount}</p>
-      <Button className="button" onClick={() => props.addBook(title, id)}>Add To Basket</Button>
+      {props.addBook && (
+      <Button className="button" onClick={() => props.addBook(title, id)}>Add To Basket</Button>)}
     </div>
   );
 };

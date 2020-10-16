@@ -9,4 +9,5 @@ const SubmittedForm = () => {
 }
 
 console.log(SubmittedForm)
+
 export default SubmittedForm

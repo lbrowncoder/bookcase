@@ -11,16 +11,21 @@ import Contact from './pages/Contact';
 import Search from './pages/Search';
 import SubmittedForm from './pages/SubmittedForm';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import searchScreen from './pages/searchScreen'
 
 const App = (props) => {
  const [books, setBooks] = useState(data);
  const [keyword, setKeyword ] = useState('');
+ const [bookcase, setBookcase] = useState([]);
 
  
  function addBook (title, id) {
      const newBookList = books.filter(book => book.id !== id);
+     const chosenBook = books.filter(book => book.id === id);
     setBooks (newBookList);
-     console.log('The book ${title} was clicked')
+    setBookcase ([...bookcase, ...chosenBook]);
+    const remainingBooks = [];
+     console.log('bookcase')
   }
 
   async function findBooks (term) {
@@ -59,6 +64,20 @@ const App = (props) => {
             <SubmittedForm />
             </React.Fragment> 
         )}/>
+            <Route path="/bookcase" render={() => (
+            <React.Fragment>
+            <Header />
+            <BookList books={bookcase} />
+            </React.Fragment> 
+        )}/>
+
+            <Route exact path="/pages/searchScreen" render={() => (
+            <React.Fragment>
+            <Header />
+            <Search />
+            <Contact />
+            </React.Fragment> 
+        )}/>    
         </Router>
  </>
  );

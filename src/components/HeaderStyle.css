@@ -13,6 +13,7 @@
   
  }
 
+
  
 .navBar1 {
     font-family: 'Archivo Narrow', sans-serif;
@@ -22,6 +23,15 @@
     margin-left: 2rem;
    
 }
+
+ 
+.navBar2 {
+    font-family: 'Archivo Narrow', sans-serif;
+    
+    color: white;
+   
+}
+
 
 
 
