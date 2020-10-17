@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'react-bootstrap';
-// import { ScrollView } from 'react-native';
+import { useState } from 'react';
 
 
 const Book = (props) => {
@@ -21,6 +21,8 @@ const Book = (props) => {
    };
 
 
+
+
   return (
     <div>
       <div className="title">
@@ -31,14 +33,14 @@ const Book = (props) => {
       <h3>{authors.join(',')}</h3>
       </div>
       <img className="pic" src= {imageLinks.thumbnail} alt={props.alt}/>
+    
 
-      <p>{description}</p> 
+      <p className='description'>{description}</p> 
       <p>£{listPrice && listPrice.amount}</p>
       {props.addBook && (
       <Button className="button" onClick={() => props.addBook(title, id)}>Add To Basket</Button>)}
       {props.removeBook && (
       <Button className="button" onClick={() => props.removeBook(id)}>Remove</Button>)}
-
     </div>
   );
 };

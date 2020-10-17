@@ -12,8 +12,9 @@ const Header = () => {
                 <NavLink className='navBar1'to="/">Home</NavLink>
                 <NavLink className='navBar' to="/pages/About">About</NavLink>
                 <NavLink className='navBar'to="/pages/Contact">Contact</NavLink>
+                <NavLink className='navBar'to="/pages/Search">Search</NavLink>
                 <NavLink className='navBar2'to="/bookcase">Bookcase</NavLink>
-                <NavLink className='navBar3'to="/pages/SearchScreen">Advance Search</NavLink>
+                
             </div>   
                 <h1 className='title'>My Bookcase</h1>
         </React.Fragment>    

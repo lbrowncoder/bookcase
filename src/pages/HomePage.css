@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap');
+
+.homeP {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-size: 1rem;
+    padding-top: 5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.homeBtn {
+    font-size: 0.5rem;
+    font-family: 'Archivo Narrow', sans-serif;
+    margin-left: 45%;
+    width: 10%;
+    border-radius: 7%;
+    background-color:  lightblue;
+    display: inline;
+}
+
+.lib {
+    margin-top: 2rem;
+    width: 95vw;
+    height: 45vh;
+    margin-left: 2rem;
+    margin-top: 0%;
+    
+}
+
+.homeP1 {
+    font-family: 'Quicksand', sans-serif;
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}

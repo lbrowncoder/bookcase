@@ -1,4 +1,5 @@
 import React from 'react'
+import pagination from "react-js-pagination";
 
 const Pagination = ({booksPerPage, totlBooks, paginate}) => {
     const pageNumbers = [];

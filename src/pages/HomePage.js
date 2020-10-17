@@ -1,19 +1,17 @@
 import {Link, NavLink} from 'react-router-dom';
 import React from 'react';
+import './HomePage.css';
+import lib from './lib.jpg';
+import bookstore from './bookstore.jpg';
 
 function HomePage() {
     return (
-        <React.Fragment>
-            <div className='header'>
-                <NavLink className='navBar1'to="/">Home</NavLink>
-                <NavLink className='navBar' to="/pages/About">About</NavLink>
-                <NavLink className='navBar'to="/pages/Contact">Contact</NavLink>
-                <NavLink className='navBar2'to="/bookcase">Bookcase</NavLink>
-                <NavLink className='navBar3'to="/pages/SearchScreen">Advance Search</NavLink>
-            </div>   
-                <h1 className='title'>Welcome to Your Bookcase</h1>
-                <p>Search, Share, Buy</p>
-                <button NavLink className='navBar3'to="/pages/Search">ENTER</button>
+        <React.Fragment>  
+                <img className='lib' src={bookstore} alt="bookstore" /> 
+                <a href="/pages/Search"><h1 className='title'>Welcome to Your Bookcase</h1></a>
+                <p className='homeP1'>Search Share Buy</p>
+                
+                {/* <a href="/pages/Search"><button className='homeBtn'> Enter </button></a> */}
 
         </React.Fragment>    
     )

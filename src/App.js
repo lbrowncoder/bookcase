@@ -13,6 +13,7 @@ import SubmittedForm from './pages/SubmittedForm';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SearchScreen from './pages/SearchScreen';
 import HomePage from './pages/HomePage';
+import BookcaseCart from './pages/BookcaseCart'
 
 const App = (props) => {
  const [books, setBooks] = useState(data);
@@ -26,13 +27,14 @@ const App = (props) => {
     setBooks (newBookList);
     setBookcase ([...bookcase, ...chosenBook]);
     const remainingBooks = [];
-     console.log('bookcase')
   }
 
   function removeBook (id) {
     const newBookcaseList = bookcase.filter((book) => book.id !== id);
     setBookcase(newBookcaseList);
-  }
+    // if (newBookcaseList.length === 0? 'No items in your Bookcase');
+    }
+  
 
   async function findBooks (term) {
       const result = await fetch (`https://www.googleapis.com/books/v1/volumes?q=${term}&filter=paid-ebooks&print-type=books&projection=lite`)
@@ -48,9 +50,10 @@ const App = (props) => {
             <HomePage />
             </React.Fragment> 
         )}/>
-            <Route exact path="/Search" render={() => (
+            <Route exact path="/pages/Search" render={() => (
             <React.Fragment>
             <Header />
+            <BookcaseCart />
             <Search findBooks={findBooks} keyword={keyword} setKeyword={setKeyword} />
             <BookList books={books} addBook={addBook}/>
             </React.Fragment> 
