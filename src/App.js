@@ -29,9 +29,10 @@ const App = (props) => {
      console.log('bookcase')
   }
 
-//   function removeBook () {
-
-//   }
+  function removeBook (id) {
+    const newBookcaseList = bookcase.filter((book) => book.id !== id);
+    setBookcase(newBookcaseList);
+  }
 
   async function findBooks (term) {
       const result = await fetch (`https://www.googleapis.com/books/v1/volumes?q=${term}&filter=paid-ebooks&print-type=books&projection=lite`)
@@ -71,7 +72,7 @@ const App = (props) => {
             <Route path="/bookcase" render={() => (
             <React.Fragment>
             <Header />
-            <BookList books={bookcase} removeBook/>
+            <BookList books={bookcase} removeBook={removeBook}/>
             </React.Fragment> 
         )}/>
 

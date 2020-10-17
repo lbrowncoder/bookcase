@@ -37,7 +37,7 @@ const Book = (props) => {
       {props.addBook && (
       <Button className="button" onClick={() => props.addBook(title, id)}>Add To Basket</Button>)}
       {props.removeBook && (
-      <Button className="button" onClick={() => props.removeBook(title, id)}>Remove</Button>)}
+      <Button className="button" onClick={() => props.removeBook(id)}>Remove</Button>)}
 
     </div>
   );
