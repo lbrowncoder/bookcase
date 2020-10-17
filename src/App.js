@@ -12,7 +12,7 @@ import Search from './pages/Search';
 import SubmittedForm from './pages/SubmittedForm';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SearchScreen from './pages/SearchScreen';
-
+import HomePage from './pages/HomePage';
 
 const App = (props) => {
  const [books, setBooks] = useState(data);
@@ -43,7 +43,12 @@ const App = (props) => {
  return (
      <>
         <Router>
-            <Route exact path="/" render={() => (
+           <Route exact path="/" render={() => (
+            <React.Fragment>
+            <HomePage />
+            </React.Fragment> 
+        )}/>
+            <Route exact path="/Search" render={() => (
             <React.Fragment>
             <Header />
             <Search findBooks={findBooks} keyword={keyword} setKeyword={setKeyword} />
