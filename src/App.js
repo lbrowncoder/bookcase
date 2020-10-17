@@ -59,7 +59,6 @@ const App = (props) => {
             <Route exact path="/pages/Contact" render={() => (
             <React.Fragment>
             <Header />
-            <Search />
             <Contact />
             </React.Fragment> 
         )}/>

@@ -1,9 +1,10 @@
 import React from 'react';
+import './ContactStyle.css';
 
 const SubmittedForm = () => {
   return (
-      <div>
-        <p>Thank you for submitting your details</p>
+      <div className='thankYou'>
+        <p>Thank you for submitting your details.</p>
       </div>
   )
 }
