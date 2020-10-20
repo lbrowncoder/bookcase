@@ -1,11 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'react-bootstrap';
-import { useState } from 'react';
-
 
 const Book = (props) => {
-  let {title, subtitle, authors, description, imageLinks,} = props.book.volumeInfo
+  let {title, subtitle, authors, description, imageLinks} = props.book.volumeInfo
     console.log(props.book)
 
    let {id, saleInfo: {listPrice} } = props.book
@@ -20,9 +18,13 @@ const Book = (props) => {
      }
    };
 
+  //  let [bookCount, setBookCount] = useState (0);
 
-
-
+  //  const addToBookcase = () => {
+  //      setBookCount(bookCount + 1);
+  //  }
+   
+   
   return (
     <div>
       <div className="title">
@@ -30,7 +32,7 @@ const Book = (props) => {
       </div>
       <div className="text">
       <p>{subtitle}</p>
-      <h3>{authors.join(',')}</h3>
+      <h3>{authors}</h3>
       </div>
       <img className="pic" src= {imageLinks.thumbnail} alt={props.alt}/>
     
@@ -43,7 +45,7 @@ const Book = (props) => {
       <Button className="button" onClick={() => props.removeBook(id)}>Remove</Button>)}
     </div>
   );
-};
+      }
 
 Book.propTypes = {
   book: PropTypes.shape({
@@ -52,14 +54,6 @@ Book.propTypes = {
       title: PropTypes.string.isRequired,
   }),
 })}
-
-// const App = (props) => {
-//   const [books] = useState(data);
-//   function addBook(title) {
-//  console.log(`The Book ${title} was clicked`);
-//   }
-//   return <BookList books={books} />
-//  }
  
 
 export default Book;

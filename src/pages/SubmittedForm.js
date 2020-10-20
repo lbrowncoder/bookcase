@@ -1,5 +1,5 @@
 import React from 'react';
-import './ContactStyle.css';
+import './Contact.css';
 
 const SubmittedForm = () => {
   return (

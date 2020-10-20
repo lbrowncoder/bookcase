@@ -1,6 +1,5 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
-import './AboutStyle.css';
+import './About.css';
 
 
 
@@ -14,22 +13,5 @@ let About = () => {
         </>
     )};
     
-
-{/* <Router>
-   <Route exact path="/About" render={() => (
-    <React.Fragment>
-    <Header />
-    <About />
-    </React.Fragment> 
-     )}/>
-    <Route exact path="/Contact" render={() => (
-    <React.Fragment>
-    <Header />
-   <Contact />
-    </React.Fragment> 
-    )}/>
-</Router>
-
-       */}
 
 export default About

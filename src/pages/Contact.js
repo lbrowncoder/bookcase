@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from "react-router";
-import './ContactStyle.css';
+import './Contact.css';
 
 
 const Contact = () => {
