@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import data from './models/books.json';
-import CSS from './components/Book.css';
+import './components/Book.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Header from './components/Header';
 import BookList from './components/BookList';
@@ -11,6 +11,8 @@ import Search from './pages/Search';
 import SubmittedForm from './pages/SubmittedForm';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import HomePage from './pages/HomePage';
+import './pages/App.css';
+
 
 
 const App = (props) => {
@@ -34,7 +36,7 @@ const App = (props) => {
     setBookcase(newBookcaseList);
   }
   
-
+// calls the book info from the API
   async function findBooks (term) {
       const result = await fetch (`https://www.googleapis.com/books/v1/volumes?q=${term}&filter=paid-ebooks&print-type=books&projection=lite`)
       .then(res => res.json());
@@ -48,12 +50,18 @@ const App = (props) => {
 
 useEffect (() => {
             document.title = bookcase.length === 0
-                ? "Bookcase"
-                : `${bookcase.length}`;
+                ? "Your Bookcase"
+                : `Added ${bookcase.length}`;
         });
 
 
+    
+      let bookcasePage = bookcase.length ===0
+        ? <p className= "bookPage">Bookcase is empty Add books to begin</p>
+        : null;
+    
 
+// routing
   return (
      <>
         <Router>
@@ -68,6 +76,7 @@ useEffect (() => {
             <p>Added to bookcase {bookcase.length}</p>
             <Search findBooks={findBooks} keyword={keyword} setKeyword={setKeyword} />
             <BookList books={books} addBook={addBook}/>
+            <BookList books={bookcase} removeBook={removeBook}/>
             </React.Fragment> 
         )}/>
             <Route exact path="/pages/About" render={() => (
@@ -92,8 +101,8 @@ useEffect (() => {
             <Route path="/bookcase" render={() => (
             <React.Fragment>
             <Header />
-            <p>Added to bookcase{bookcase.length}</p>
-            <p>Bookcase is empty. Add books to begin {bookcase.length <1}</p>
+            <p>Added to bookcase {bookcase.length}</p>
+            {bookcasePage}
             <BookList books={bookcase} removeBook={removeBook}/>
             </React.Fragment> 
         )}/>
@@ -114,23 +123,6 @@ useEffect (() => {
 
 ReactDOM.render(<App />,document.getElementById('root'));
 export default App;
-
-
-//   I am trying to use a counter to show how much books are in the bookcase
-//     const [bookCount, setBookCount] = usestate (0);
-
-//     useEffect (() => {
-    //     document.title= `Added ${bookCount}`;
-    // });
-
-//     return (
-//         <div>
-{/* <p>Added to bookcase {{bookcount}</p> */}
-//             <button onClick={() => setBookCount(bookCount + 1)}>Total books in bookcase</button>
-//         </div>
-//     );
-// };
-
 
 
 
