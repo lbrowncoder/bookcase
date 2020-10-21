@@ -17,13 +17,7 @@ const Book = (props) => {
        return amount;
      }
    };
-
-  //  let [bookCount, setBookCount] = useState (0);
-
-  //  const addToBookcase = () => {
-  //      setBookCount(bookCount + 1);
-  //  }
-   
+  
    
   return (
     <div>

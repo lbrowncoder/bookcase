@@ -11,8 +11,6 @@ import Search from './pages/Search';
 import SubmittedForm from './pages/SubmittedForm';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import HomePage from './pages/HomePage';
-import axios from 'axios';
-import { Pagination } from 'react-bootstrap';
 
 
 const App = (props) => {
@@ -41,29 +39,18 @@ const App = (props) => {
       const result = await fetch (`https://www.googleapis.com/books/v1/volumes?q=${term}&filter=paid-ebooks&print-type=books&projection=lite`)
       .then(res => res.json());
       console.log (result)
-      setBooks(result.items)
+      setBooks(result.items.slice(0, 5))
   }
 
-//   This is attempt at Pagination
-//   const pageNumbers = () => {
-//   const [bookResults, getBookResults] = useState([]);
-//   const [loading, setLoading] = setState(false);
-//   const [currentPage, setCurrentPage] = useState (1);
-//   const [booksPerPage, setBooksPerPage] = usestate (5);
+  useEffect(() => {
+    findBooks();
+}, []);
 
-//   useEffect (( ) => {
-//       const fetchbookReults = async () => {
-//       setLoading(true);
-//       const res = await axios.get ('https://www.googleapis.com/books/v1/volumes?q=${term}&filter=paid-ebooks&print-type=books&projection=lite')
-//         getBookResults(res.data);
-//         setLoading(false);
-//     }
-
-//     fetchbookReults();
-// },[]);
-
-// This is where pagination ends
-
+useEffect (() => {
+            document.title = bookcase.length === 0
+                ? "Bookcase"
+                : `${bookcase.length}`;
+        });
 
 
 
@@ -105,7 +92,8 @@ const App = (props) => {
             <Route path="/bookcase" render={() => (
             <React.Fragment>
             <Header />
-            <p>Added to bookcase {bookcase.length}</p>
+            <p>Added to bookcase{bookcase.length}</p>
+            <p>Bookcase is empty. Add books to begin {bookcase.length <1}</p>
             <BookList books={bookcase} removeBook={removeBook}/>
             </React.Fragment> 
         )}/>
@@ -132,8 +120,8 @@ export default App;
 //     const [bookCount, setBookCount] = usestate (0);
 
 //     useEffect (() => {
-//         document.title= `Added ${bookCount}`;
-//     });
+    //     document.title= `Added ${bookCount}`;
+    // });
 
 //     return (
 //         <div>
@@ -169,5 +157,23 @@ export default App;
 // )
 // }
 
+//   This is attempt at Pagination
+//   const pageNumbers = () => {
+//   const [bookResults, getBookResults] = useState([]);
+//   const [loading, setLoading] = setState(false);
+//   const [currentPage, setCurrentPage] = useState (1);
+//   const [booksPerPage, setBooksPerPage] = usestate (5);
 
+//   useEffect (( ) => {
+//       const fetchbookReults = async () => {
+//       setLoading(true);
+//       const res = await axios.get ('https://www.googleapis.com/books/v1/volumes?q=${term}&filter=paid-ebooks&print-type=books&projection=lite')
+//         getBookResults(res.data);
+//         setLoading(false);
+//     }
+
+//     fetchbookReults();
+// },[]);
+
+// This is where pagination ends
 
