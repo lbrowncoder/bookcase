@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState } from 'react';
 import './Search.css';
 
  
@@ -8,6 +7,7 @@ function Search (props) {
     function handleSubmit (event) {
         event.preventDefault ();
         props.findBooks(props.keyword);
+        props.findBooks(props.title)
     }
     return (
     <>

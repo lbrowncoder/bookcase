@@ -9,10 +9,10 @@ const Header = () => {
     return (
         <React.Fragment>
             <div className='header'>
-                <NavLink className='navBar1'to="/">Home</NavLink>
+                <NavLink className='navBar1'to="/pages/Search">Home</NavLink>
                 <NavLink className='navBar' to="/pages/About">About</NavLink>
                 <NavLink className='navBar'to="/pages/Contact">Contact</NavLink>
-                <NavLink className='navBar'to="/pages/Search">Search</NavLink>
+                <NavLink className='navBar'to="/pages/AdvanceSearch">Advance Search</NavLink>
                 <NavLink className='navBar2'to="/bookcase">Bookcase</NavLink>
                 
             </div>   

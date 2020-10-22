@@ -12,6 +12,7 @@ import SubmittedForm from './pages/SubmittedForm';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import HomePage from './pages/HomePage';
 import './pages/App.css';
+import AdvanceSearch from './pages/AdvanceSearch';
 
 
 
@@ -19,6 +20,8 @@ const App = (props) => {
  const [books, setBooks] = useState(data);
  const [keyword, setKeyword ] = useState('');
  const [bookcase, setBookcase] = useState([]);
+ const [author, setAuthor] = useState('');
+ const [title, setTitle] = useState('');
 
 
  
@@ -30,18 +33,22 @@ const App = (props) => {
     const remainingBooks = [];
   }
 
- 
   function removeBook (id) {
     const newBookcaseList = bookcase.filter((book) => book.id !== id);
     setBookcase(newBookcaseList);
   }
+//  add to basket function 
+function addToBasket (id) {
+    const added = bookcase.filter((book) => book.id !==id);
+    setBookcase(addToBasket); 
+}
   
 // calls the book info from the API
   async function findBooks (term) {
       const result = await fetch (`https://www.googleapis.com/books/v1/volumes?q=${term}&filter=paid-ebooks&print-type=books&projection=lite`)
       .then(res => res.json());
       console.log (result)
-      setBooks(result.items.slice(0, 5))
+      setBooks(result.items)
   }
 
   useEffect(() => {
@@ -54,12 +61,10 @@ useEffect (() => {
                 : `Added ${bookcase.length}`;
         });
 
-
-    
       let bookcasePage = bookcase.length ===0
-        ? <p className= "bookPage">Bookcase is empty Add books to begin</p>
+        ? <p className= "bookPage">Bookcase is empty- Add books to begin</p>
         : null;
-    
+
 
 // routing
   return (
@@ -103,13 +108,13 @@ useEffect (() => {
             <Header />
             <p>Added to bookcase {bookcase.length}</p>
             {bookcasePage}
-            <BookList books={bookcase} removeBook={removeBook}/>
+            <BookList books={bookcase} addToBasket={addToBasket} removeBook={removeBook} />
             </React.Fragment> 
         )}/>
-
-            <Route exact path="/pages/SearchScreen" render={() => (
+            <Route exact path="/pages/AdvanceSearch" render={() => (
             <React.Fragment>
             <Header />
+            <AdvanceSearch setAuthor={setAuthor} author={author} setKeyword={setKeyword} keyword={keyword} setTitle={setTitle} title={title}/>
             </React.Fragment> 
         )}/>    
         </Router>
