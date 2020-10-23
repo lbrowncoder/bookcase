@@ -1,13 +1,14 @@
 import React, {useState} from 'react';
 import Book from './Book';
 import Pagination from "react-js-pagination";
+import './BookList.css';
 
 const BookList = (props) => {
     const booksPerPage = 3
     const [ activePage, setCurrentPage ] = useState(1)
-    const pagefLastBook  = activePage * booksPerPage;
-    const pagefFirstBook = pagefLastBook - booksPerPage;
-    const currentBooks = props.books.slice( pagefFirstBook, pagefLastBook );
+    const pageofLastBook  = activePage * booksPerPage;
+    const pagefFirstBook = pageofLastBook - booksPerPage;
+    const currentBooks = props.books.slice( pagefFirstBook, pageofLastBook );
     const displayBook = currentBooks.map( ( book ) => {
       return <Book key={book.id} book={book} addBook={props.addBook} removeBook={props.removeBook}/>
    } );
@@ -18,7 +19,7 @@ const BookList = (props) => {
       <>
       {displayBook}
           <div>
-              <Pagination
+              <Pagination className= 'pagination'
                  activePage={ activePage }
                  itemsCountPerPage={ 2 }
                  totalItemsCount={ props.books.length }

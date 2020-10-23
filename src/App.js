@@ -114,7 +114,7 @@ useEffect (() => {
             <Route exact path="/pages/AdvanceSearch" render={() => (
             <React.Fragment>
             <Header />
-            <AdvanceSearch setAuthor={setAuthor} author={author} setKeyword={setKeyword} keyword={keyword} setTitle={setTitle} title={title}/>
+            <AdvanceSearch setAuthor={setAuthor} setKeyword={setKeyword} keyword={keyword} setTitle={setTitle} />
             </React.Fragment> 
         )}/>    
         </Router>
