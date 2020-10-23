@@ -1,8 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow&display=swap');
 
 .FormBox {
     padding-top: 5rem;
-    font-family: 'Archivo Narrow', sans-serif;
     text-align: center;
     font-size: 1em;
     padding-right: 2rem;
@@ -22,7 +20,6 @@
     display: flex;
     justify-content: center;
     margin-top: 10rem;
-    font-family: 'Archivo Narrow', sans-serif;
     font-size: 2.4rem;
 
 }

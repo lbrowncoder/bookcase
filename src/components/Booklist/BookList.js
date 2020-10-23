@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import Book from './Book';
+import Book from '../Book/Book';
 import Pagination from "react-js-pagination";
-import './BookList.css';
+import '../Booklist/BookList.css'
 
 const BookList = (props) => {
     const booksPerPage = 3

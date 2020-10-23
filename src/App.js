@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import data from './models/books.json';
-import './components/Book.css';
+import './components/Book/Book.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import Header from './components/Header';
-import BookList from './components/BookList';
-import About from './pages/About'
+import Header from './components/Header/Header';
+import BookList from './components/Booklist/BookList';
+import About from './pages/About/About'
 import ReactDOM from 'react-dom';
-import Contact from './pages/Contact';
-import Search from './pages/Search';
-import SubmittedForm from './pages/SubmittedForm';
+import Contact from './pages/Contact/Contact';
+import Search from './pages/Search/Search';
+import SubmittedForm from './pages/SubmittedForm/SubmittedForm';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import HomePage from './pages/HomePage';
-import './pages/App.css';
-import AdvanceSearch from './pages/AdvanceSearch';
+import HomePage from './pages/HomePage/HomePage';
+import './App.css';
+import AdvanceSearch from './pages/Search/AdvanceSearch';
 
 
 

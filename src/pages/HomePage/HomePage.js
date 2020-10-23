@@ -1,7 +1,7 @@
 import {Link, NavLink} from 'react-router-dom';
 import React from 'react';
-import './HomePage.css';
-import bookstore from './bookstore.jpg';
+import '../HomePage/HomePage.css';
+import bookstore from '../HomePage/Images/bookstore.jpg';
 
 function HomePage() {
     return (

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from "react-router";
-import './Contact.css';
+import '../Contact/Contact.css';
 
 
 const Contact = () => {
@@ -11,7 +11,7 @@ const Contact = () => {
    
     function handleSubmit(event) {
       event.preventDefault();
-      history.push('/pages/SubmittedForm')
+      history.push('/pages/SubmittedForm/SubmittedForm')
     }
       return (
         <div className = "FormBox">
