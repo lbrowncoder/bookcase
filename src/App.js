@@ -79,8 +79,8 @@ let bookcasePage = bookcase.length ===0
         )}/>
             <Route exact path="/pages/Search" render={() => (
             <React.Fragment>
-            <p className='added'>Added to bookcase: {bookcase.length}</p>
             <Header /> 
+            <p className='added'>Added to bookcase: {bookcase.length}</p>
             <Search findBooks={findBooks} keyword={keyword} setKeyword={setKeyword} />
             <BookList books={books} addBook={addBook}/>
             <BookList books={bookcase} removeBook={removeBook} addToBasket={addToBasket} />
@@ -89,7 +89,6 @@ let bookcasePage = bookcase.length ===0
             <Route exact path="/pages/About" render={() => (
             <React.Fragment>
             <Header />
-            <Search />
             <About />
             </React.Fragment> 
         )}/>
@@ -108,7 +107,7 @@ let bookcasePage = bookcase.length ===0
             <Route path="/bookcase" render={() => (
             <React.Fragment>
             <Header />
-            <p>Added to bookcase {bookcase.length}</p>
+            <p className='added'>Added to bookcase {bookcase.length}</p>
             {bookcasePage}
             <BookList books={bookcase} addToBasket={addToBasket} removeBook={removeBook} addToBasket={addToBasket} />
             </React.Fragment> 

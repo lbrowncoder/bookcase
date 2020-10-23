@@ -1,2 +1,11 @@
+.welcome {
+    font-size: 2rem;
+    text-align: center;
+    padding-bottom: 4rem;
+}
 
+.application {
+font-size: 1rem;
+text-align: center;
 
+}

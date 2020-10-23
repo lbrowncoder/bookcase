@@ -1,5 +1,7 @@
 .pagination {
   display: inline-block;
+  justify-self: center;
+ justify-content: center;
 }
 
 .pagination a {
@@ -14,6 +16,7 @@
   background-color: black;
   color: white;
   border: 1px solid black;
+  text-align: center;
 }
 
 .pagination a:hover:not(.active) {

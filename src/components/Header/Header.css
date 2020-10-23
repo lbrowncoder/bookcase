@@ -1,38 +1,20 @@
 
 .header {
+  display: flex;
+  justify-content: space-between;
     background-color:darkcyan;
     padding-top: 2.5rem;
+    padding-left: 6rem;
+
 }
 
 .navBar {
-      margin-right: 7rem;
+    margin-right: 7rem;
     color: white;
     display: inline;
   
  }
-
-
  
-.navBar1 {
-      margin-right: 7rem;
-    color: white;
-    display: inline;
-    margin-left: 2rem;
-   
-}
-
- 
-.navBar2 {
-      color: white;
-    margin-left: 32rem;
-   
-}
-
-.navBar3 {
-      color: white;
-    margin-left: 2rem;
-   
-}
 
 .pageTitle {
   font-size: 3rem;

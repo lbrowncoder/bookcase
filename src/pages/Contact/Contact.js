@@ -11,7 +11,7 @@ const Contact = () => {
    
     function handleSubmit(event) {
       event.preventDefault();
-      history.push('/pages/SubmittedForm/SubmittedForm')
+      history.push('/pages/SubmittedForm')
     }
       return (
         <div className = "FormBox">
