@@ -13,6 +13,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import HomePage from './pages/HomePage/HomePage';
 import './App.css';
 import AdvanceSearch from './pages/Search/AdvanceSearch';
+import Basket from './pages/Basket/Basket';
 
 
 
@@ -37,10 +38,11 @@ const App = (props) => {
     const newBookcaseList = bookcase.filter((book) => book.id !== id);
     setBookcase(newBookcaseList);
   }
-//  add to basket function 
+
+//  add to basket function - not working
 function addToBasket (id) {
-    const added = bookcase.filter((book) => book.id !==id);
-    setBookcase(addToBasket); 
+    const newBasket = books.filter(book => book.id !== id);
+    setBooks (newBasket);
 }
   
 // calls the book info from the API
@@ -61,9 +63,9 @@ useEffect (() => {
                 : `Added ${bookcase.length}`;
         });
 
-      let bookcasePage = bookcase.length ===0
-        ? <p className= "bookPage">Bookcase is empty- Add books to begin</p>
-        : null;
+let bookcasePage = bookcase.length ===0
+     ? <p className= "bookPage">Bookcase is empty- Add books to begin</p>
+     : null;
 
 
 // routing
@@ -77,11 +79,11 @@ useEffect (() => {
         )}/>
             <Route exact path="/pages/Search" render={() => (
             <React.Fragment>
-            <Header />
-            <p>Added to bookcase {bookcase.length}</p>
+            <p className='added'>Added to bookcase: {bookcase.length}</p>
+            <Header /> 
             <Search findBooks={findBooks} keyword={keyword} setKeyword={setKeyword} />
             <BookList books={books} addBook={addBook}/>
-            <BookList books={bookcase} removeBook={removeBook}/>
+            <BookList books={bookcase} removeBook={removeBook} addToBasket={addToBasket} />
             </React.Fragment> 
         )}/>
             <Route exact path="/pages/About" render={() => (
@@ -108,15 +110,21 @@ useEffect (() => {
             <Header />
             <p>Added to bookcase {bookcase.length}</p>
             {bookcasePage}
-            <BookList books={bookcase} addToBasket={addToBasket} removeBook={removeBook} />
+            <BookList books={bookcase} addToBasket={addToBasket} removeBook={removeBook} addToBasket={addToBasket} />
             </React.Fragment> 
         )}/>
             <Route exact path="/pages/AdvanceSearch" render={() => (
             <React.Fragment>
             <Header />
-            <AdvanceSearch setAuthor={setAuthor} setKeyword={setKeyword} keyword={keyword} setTitle={setTitle} />
+            <AdvanceSearch findBooks={findBooks} keyword={keyword} setKeyword={setKeyword} setAuthor={setAuthor} setTitle={setTitle} />
             </React.Fragment> 
-        )}/>    
+        )}/>   
+          <Route exact path="/pages/Basket/Basket" render={() => (
+            <React.Fragment>
+            <Header />
+            <Basket addToBasket={addToBasket} />
+            </React.Fragment>  
+          )}/>
         </Router>
  </>
  );

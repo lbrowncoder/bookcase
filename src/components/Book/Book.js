@@ -21,21 +21,25 @@ const Book = (props) => {
    
   return (
     <div>
-      <div className="title">
-      <h2>{title}</h2>
+      <div className='box1'>
+      <h2 className='bookTitle'>{title}</h2>
+      <img className="pic" src= {imageLinks.thumbnail} alt={props.alt}/>
       </div>
       <div className="text">
-      <p>{subtitle}</p>
-      <h3>{authors}</h3>
-      </div>
-      <img className="pic" src= {imageLinks.thumbnail} alt={props.alt}/>
-    
-
+      <h3 className= 'author'>{authors}</h3>
       <p className='description'>{description}</p> 
       <p>£{listPrice && listPrice.amount}</p>
+      </div>
+ 
+    
+
+      
       {props.addBook && (
       <Button className="button" onClick={() => props.addBook(title, id)}>Add To Bookcase</Button>)}
-      <Button className="button" onClick={() => props.addToBookcase(id)}>Buy</Button> 
+      
+      {props.addToBasket && (
+      <Button className="button" onClick={() => props.addToBasket(id)}>Buy</Button>)}
+      
       {props.removeBook && (
       <Button className="button" onClick={() => props.removeBook(id)}>Remove</Button>)}
     </div>

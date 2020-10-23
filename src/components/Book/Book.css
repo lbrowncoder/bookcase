@@ -1,47 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;500&display=swap');
 
-h1 {
-    text-align: center;
-    font-size: 3rem;
-    padding: 0rem;
+:root {
+  font-family: 'Oswald', sans-serif;
 }
 
-p {
-    text-size: 0.2rem;
-    justify-self: center;
-    font-style: inline;
-    text-align: justify;
-    margin-left: 2rem;
-    margin-right: 2rem;
-}
-
-.title {
-    text-align: center;
-    padding-top: 6rem;
-    font-family: 'Sansita Swashed', cursive;
-    font-size: 0.5rem;
+.box1 {
+    display: flex;
+    display: inline-block;
+    border: 2px solid black;
+    border-radius: 1rem;
+    width: 280px;
+    height: 20rem;
+    padding-top: 3rem;
+    padding-bottom: 2rem;   
+    padding: 3rem;
+    text-align: flex-start;
+    padding-top: 1rem;
+    margin-left: 0.5rem;
+    
 }
 
 .pic {
- border: 10px blue solid;
-margin-left: 34rem;
-}
+    border: 10px blue solid;   
+    height: auto;
+    width: auto;
+    margin-left: 1rem;   
+   }
 
-pic:hover {
-    border: 10px yellow solid; 
-}
+.text {
+    display: flex;
+    display: inline;
+    justify-content: space-between;
+    border: 2px solid black;
+    border-radius: 1rem;
+    height: 20rem;
+    width: 55rem;
+    float: right;
+    overflow: scroll;
+    text-align: center;
+    padding-top: 1rem;
+    margin-right: 2rem;
 
-.text{
-    margin-left: 2rem;
-    color:orangered;
-    font-size: 1rem;
 }
 
 .button {
-   margin-left: 55rem;
+        margin-left: 65rem;
+        margin-top: 1rem;
+        margin-bottom: 3rem ;
+     } 
+     
+.bookTitle {
+    font-size: 1.3rem;
+    text-align: center;
 }
 
-.description {
-    overflow: auto;
-    height: 10rem;
-    width: 50rem;
+.author {
+    font-size: 1.3rem;
+    padding-bottom: 2rem;
+    margin-top: 0.5rem;
 }
+
+ 

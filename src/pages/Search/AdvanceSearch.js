@@ -3,16 +3,16 @@ import '../Search/Search.css';
 
 
 
-function AdvanceSearch (props) {
+const AdvanceSearch = (props) => {
 
     function handleSearchSubmit (event) {
         event.preventDefault ();
+        props.fndBooks(props.keyword, props.setAuthor, props.setTitle)
         props.setKeyword(props.keyword);
         props.setAuthor(props.author);
         props.setTitle(props.title);
     }
 return (
-    <>
     <form onSubmit={handleSearchSubmit}>
         <p className="searchText">Search by Author, Title or keyword</p>
         <div className="searchTabel">
@@ -26,7 +26,6 @@ return (
         <button >Title Search</button>
         </div>
     </form>    
-</>
 )
 }
 
