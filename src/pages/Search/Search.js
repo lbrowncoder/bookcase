@@ -9,7 +9,11 @@ function Search (props) {
         event.preventDefault ();
         props.findBooks(props.keyword);
         props.findBooks(props.title)
+    
     }
+
+     
+
     return (
     <>
     <div>
@@ -18,6 +22,10 @@ function Search (props) {
         <form className='searchBar' onSubmit={handleSubmit}>
             <input type="text" value={props.keyword} onChange={(event)=>props.setKeyword(event.target.value)}/>
             <button className='searchButton'>Quick Search</button>
+            {/* <button onClick={props.findCrime}>Crime Search</button> */}
+
+        
+            
         </form>
     </>    
     );

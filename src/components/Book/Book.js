@@ -23,7 +23,7 @@ const Book = (props) => {
     <div>
       <div className='box1'>
       <h2 className='bookTitle'>{title}</h2>
-      <img className="pic" src= {imageLinks.thumbnail} alt={props.alt}/>
+      <img className="pic" src= {imageLinks.thumbnail || imageLinks.smallThumbnail} alt={props.alt}/>
       </div>
       <div className="text">
       <h3 className= 'author'>{authors}</h3>

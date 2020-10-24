@@ -23,6 +23,9 @@ const App = (props) => {
  const [bookcase, setBookcase] = useState([]);
  const [author, setAuthor] = useState('');
  const [title, setTitle] = useState('');
+ const [basket, setBasket] = useState([]);
+ const [page, setPage] = useState('')
+ 
 
 
  
@@ -40,9 +43,15 @@ const App = (props) => {
   }
 
 //  add to basket function - not working
-function addToBasket (id) {
-    const newBasket = books.filter(book => book.id !== id);
-    setBooks (newBasket);
+const addToBasket = (id) => {
+  setBasket([...basket, ...id])
+
+    // const newBasket = books.filter(book => book.id !== id);
+    // const buyBook = books.filter(book => book.id === id)
+    // setBooks (newBasket);
+    // setBasket ([...basket, ...buyBook])
+    // const remainingBooks = [];
+  
 }
   
 // calls the book info from the API
@@ -52,10 +61,29 @@ function addToBasket (id) {
       console.log (result)
       setBooks(result.items)
   }
+  // 
 
-  useEffect(() => {
-    findBooks();
-}, []);
+async function findAuthor (value, authorValue) {
+  const result = await fetch (`https://www.googleapis.com/books/v1/volumes?q=${value}:${authorValue}`)
+  .then(res => res.json());
+  setBooks(result.items)
+}
+
+async function findTitle (value, titleValue) {
+  const result = await fetch (`https://www.googleapis.com/books/v1/volumes?q=${value}${titleValue}`)
+  .then(res => res.json());
+  setBooks(result.items)
+}
+
+// async function findCrime () {
+  //   const result = await fetch (` https://www.googleapis.com/books/v1/volumes?q=crime`)
+  //   .then(res => res.json());
+  //   console.log (result)
+  //   setBooks(result.items)
+
+//   useEffect(() => {
+//     findBooks();
+// }, []);
 
 useEffect (() => {
             document.title = bookcase.length === 0
@@ -108,14 +136,15 @@ let bookcasePage = bookcase.length ===0
             <React.Fragment>
             <Header />
             <p className='added'>Added to bookcase {bookcase.length}</p>
-            {bookcasePage}
-            <BookList books={bookcase} addToBasket={addToBasket} removeBook={removeBook} addToBasket={addToBasket} />
+            <button>Go To Basket {bookcase.length}</button>
+            {bookcasePage} {addToBasket}
+            <BookList books={bookcase} removeBook={removeBook} addToBasket={addToBasket} />
             </React.Fragment> 
         )}/>
             <Route exact path="/pages/AdvanceSearch" render={() => (
             <React.Fragment>
             <Header />
-            <AdvanceSearch findBooks={findBooks} keyword={keyword} setKeyword={setKeyword} setAuthor={setAuthor} setTitle={setTitle} />
+            <AdvanceSearch findBooks={findBooks} keyword={keyword} setKeyword={setKeyword} findAuthor={findAuthor} author={author} setAuthor={setAuthor} /*findCrime={findCrime}*/ title={title} findTitle={findTitle} setTitle={setTitle} />
             </React.Fragment> 
         )}/>   
           <Route exact path="/pages/Basket/Basket" render={() => (
