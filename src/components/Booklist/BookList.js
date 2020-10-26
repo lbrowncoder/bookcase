@@ -9,6 +9,7 @@ const BookList = (props) => {
     const pageofLastBook  = activePage * booksPerPage;
     const pagefFirstBook = pageofLastBook - booksPerPage;
     const currentBooks = props.books.slice( pagefFirstBook, pageofLastBook );
+    
     const displayBook = currentBooks.map( ( book ) => {
       return <Book key={book.id} book={book} addBook={props.addBook} removeBook={props.removeBook} addToBasket={props.addToBasket} />
    } );

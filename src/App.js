@@ -45,6 +45,8 @@ const App = (props) => {
 //  add to basket function - not working
 const addToBasket = (id) => {
   setBasket([...basket, ...id])
+  console.log('we are in basket')
+  
 
     // const newBasket = books.filter(book => book.id !== id);
     // const buyBook = books.filter(book => book.id === id)
@@ -75,11 +77,6 @@ async function findTitle (value, titleValue) {
   setBooks(result.items)
 }
 
-// async function findCrime () {
-  //   const result = await fetch (` https://www.googleapis.com/books/v1/volumes?q=crime`)
-  //   .then(res => res.json());
-  //   console.log (result)
-  //   setBooks(result.items)
 
 //   useEffect(() => {
 //     findBooks();
@@ -136,7 +133,7 @@ let bookcasePage = bookcase.length ===0
             <React.Fragment>
             <Header />
             <p className='added'>Added to bookcase {bookcase.length}</p>
-            <button>Go To Basket {bookcase.length}</button>
+            <button onclick={() =>addToBasket()}>Go To Basket {bookcase.length}</button>
             {bookcasePage} {addToBasket}
             <BookList books={bookcase} removeBook={removeBook} addToBasket={addToBasket} />
             </React.Fragment> 
@@ -144,7 +141,7 @@ let bookcasePage = bookcase.length ===0
             <Route exact path="/pages/AdvanceSearch" render={() => (
             <React.Fragment>
             <Header />
-            <AdvanceSearch findBooks={findBooks} keyword={keyword} setKeyword={setKeyword} findAuthor={findAuthor} author={author} setAuthor={setAuthor} /*findCrime={findCrime}*/ title={title} findTitle={findTitle} setTitle={setTitle} />
+            <AdvanceSearch findBooks={findBooks} keyword={keyword} setKeyword={setKeyword} findAuthor={findAuthor} author={author} setAuthor={setAuthor} title={title} findTitle={findTitle} setTitle={setTitle} />
             </React.Fragment> 
         )}/>   
           <Route exact path="/pages/Basket/Basket" render={() => (
@@ -160,9 +157,8 @@ let bookcasePage = bookcase.length ===0
 
 
 
-
-
 ReactDOM.render(<App />,document.getElementById('root'));
+
 export default App;
 
 

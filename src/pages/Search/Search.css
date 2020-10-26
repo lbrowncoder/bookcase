@@ -11,16 +11,38 @@
  margin-left: 59rem;
  padding-top: 0.2rem;
 white-space: nowrap;
-font-weight: bold;
 font-size: 0.8rem;
 
 }
+/* 
+advanceSearch style */
 
 .searchTabel {
     padding-top: 5rem;
+  margin-left: 3rem;
 }
 
 .searchText {
     padding-left: 0%;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.keySearch {
+    margin-right: 5rem;
+
+}
+
+
+.authorSearch {
+    margin-right: 5rem;
+}
+
+
+.titleSearch {
+    margin-right: 5rem;
+
+    
+
 }
 

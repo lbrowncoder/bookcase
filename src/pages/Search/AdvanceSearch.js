@@ -36,3 +36,41 @@ return (
 export default AdvanceSearch
 
  
+
+
+
+// import React from 'react';
+// import '../Search/Search.css';
+// import Book from '../../components/Book/Book';
+// import { Button } from 'react-bootstrap';
+
+//  function handleSearchSubmit (event) {
+
+//     const AdvanceSearch = (props) => {
+//         props.book(props.keyword, props.author, props.title)
+   
+//     return (
+//         <div>
+//             {props.books.map(book => (
+//                <>
+//                 <Book key={book.id} book={book} findAuthor={props.author} findTitle={props.title} keyword={props.keyword} />
+               
+//                 <form onSubmit={handleSearchSubmit}>
+//                     <p className="searchText">Search by Keyord, Author or Title </p>
+//                         <div className="searchTabel">
+//                             {props.keyword && (
+//                             <Button className='keySearchBox' onClick={() => props.keyword} type='submit'>keyword</Button>)}
+//                             {props.author && (
+//                             <Button className='authorSearchBox' onClick={() => props.author()} type='submit'>Author</Button>)}
+//                             {props.title && (
+//                             <Button className='titleSearchBox' onClick={() => props.title()} type='submit'>Title</Button>)}
+                            
+//                         </div>
+//                 </form>  
+//               </>
+//             ))}
+//         </div>
+     
+//     )}}
+
+//     export default AdvanceSearch
