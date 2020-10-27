@@ -35,13 +35,13 @@ const Book = (props) => {
 
       
       {props.addBook && (
-      <Button className="button" onClick={() => props.addBook(title, id)}>Add To Bookcase</Button>)}
+      <Button className="buttonPop" onClick={() => props.addBook(title, id)}>Add To Bookcase</Button>)}
       
       {props.addToBasket && (
-      <Button className="button" onClick={() => props.addToBasket(id)}>Buy</Button>)}
+      <Button className="buttonPop" onClick={() => props.addToBasket(id)}>Buy</Button>)}
       
       {props.removeBook && (
-      <Button className="button" onClick={() => props.removeBook(id)}>Remove</Button>)}
+      <Button className="buttonPop" onClick={() => props.removeBook(id)}>Remove</Button>)}
     </div>
   );
       }

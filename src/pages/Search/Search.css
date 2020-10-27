@@ -5,6 +5,7 @@
     padding-top: 0%;
     padding-bottom: 4rem;
     
+
 }
 
 .find {
@@ -14,13 +15,20 @@ white-space: nowrap;
 font-size: 0.8rem;
 
 }
+
 /* 
-advanceSearch style */
+advanceSearch style below*/
+
+
+--border-size: 2px;
+--background-color: rgb(67, 134, 223);
 
 .searchTabel {
-    padding-top: 5rem;
-  margin-left: 3rem;
+margin-top: 15rem;
+   margin-left: 3rem;
 }
+
+
 
 .searchText {
     padding-left: 0%;
@@ -30,19 +38,102 @@ advanceSearch style */
 
 .keySearch {
     margin-right: 5rem;
+    position: relative;
+    --border-size: 2px;
+    --accent-colour: darkcyan;
+    margin-top: 5rem;
+}
 
+.keySearch::before {
+    content:'';
+    position: absolute;
+    left:0;
+    right:0;
+    bottom: 0;
+    height: var(--border-size);
+    background-color: var(--accent-colour);
+    transform: scaleX(0);
+    transition: transform 300ms ease-in-out;
+ 
+}
+
+.keySearch:hover::before,
+.keySearch:focus::before {
+    transform: scaleX(1)
 }
 
 
 .authorSearch {
     margin-right: 5rem;
+    position: relative;
+    --border-size: 2px;
+    --accent-colour: darkcyan;
+}
+
+.authorSearch::before {
+    content:'';
+    position: absolute;
+    left:0;
+    right:0;
+    bottom: 0;
+    height: var(--border-size);
+    background-color: var(--accent-colour);
+    transform: scaleX(0);
+    transition: transform 300ms ease-in-out;
+ 
+}
+
+.authorSearch:hover::before,
+.authorSearch:focus::before {
+    transform: scaleX(1)
 }
 
 
 .titleSearch {
     margin-right: 5rem;
-
-    
-
+    position: relative;
+    --border-size: 2px;
+    --accent-colour: darkcyan;
 }
 
+.titleSearch::before {
+    content:'';
+    position: absolute;
+    left:0;
+    right:0;
+    bottom: 0;
+    height: var(--border-size);
+    background-color: var(--accent-colour);
+    transform: scaleX(0);
+    transition: transform 300ms ease-in-out;
+ 
+}
+
+.titleSearch:hover::before,
+.titleSearch:focus::before {
+    transform: scaleX(1)
+}
+
+.searchButton {
+    position: relative;
+    --border-size: 2px;
+    --accent-colour: darkcyan;
+}
+
+.searchButton::before {
+    content:'';
+    position: absolute;
+    left:0;
+    right:0;
+    bottom: 0;
+    height: var(--border-size);
+    background-color: var(--accent-colour);
+    transform: scaleX(0);
+    transition: transform 300ms ease-in-out;
+ 
+}
+
+.searchButton:hover::before,
+.searchButton:focus::before {
+    transform: scaleX(1)
+}

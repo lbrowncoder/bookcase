@@ -14,6 +14,7 @@ import HomePage from './pages/HomePage/HomePage';
 import './App.css';
 import AdvanceSearch from './pages/Search/AdvanceSearch';
 import Basket from './pages/Basket/Basket';
+import Footer from './pages/Footer/Footer';
 
 
 
@@ -46,7 +47,10 @@ const App = (props) => {
 const addToBasket = (id) => {
   setBasket([...basket, ...id])
   console.log('we are in basket')
+
+
   
+  // const [page, setPage] = useState('bookProducts');
 
     // const newBasket = books.filter(book => book.id !== id);
     // const buyBook = books.filter(book => book.id === id)
@@ -109,6 +113,7 @@ let bookcasePage = bookcase.length ===0
             <Search findBooks={findBooks} keyword={keyword} setKeyword={setKeyword} />
             <BookList books={books} addBook={addBook}/>
             <BookList books={bookcase} removeBook={removeBook} addToBasket={addToBasket} />
+            < Footer />
             </React.Fragment> 
         )}/>
             <Route exact path="/pages/About" render={() => (
@@ -133,7 +138,7 @@ let bookcasePage = bookcase.length ===0
             <React.Fragment>
             <Header />
             <p className='added'>Added to bookcase {bookcase.length}</p>
-            <button onclick={() =>addToBasket()}>Go To Basket {bookcase.length}</button>
+            <button>Go To Basket {bookcase.length}</button>
             {bookcasePage} {addToBasket}
             <BookList books={bookcase} removeBook={removeBook} addToBasket={addToBasket} />
             </React.Fragment> 
@@ -158,7 +163,6 @@ let bookcasePage = bookcase.length ===0
 
 
 ReactDOM.render(<App />,document.getElementById('root'));
-
 export default App;
 
 

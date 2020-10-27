@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../Search/Search.css';
 import { useHistory } from "react-router";
-
 
 
 const AdvanceSearch = (props) => {
@@ -21,13 +20,13 @@ return (
         <div className="searchTabel">
         
          <input type="text" value={props.keyword} onChange={(event)=>props.setKeyword(event.target.value)}/> 
-        <button onClick={props.keyword} type='submit'>keyword Search</button>
+        <button className= 'keySearch' onClick={props.keyword} type='submit'>keyword Search</button>
         
         <input type="text" value={props.author} onChange={(event) =>props.setAuthor(event.target.value)}/>
-        <button onClick={props.findAuthor, props.keyword} type='submit'>Author Search</button>
+        <button className= 'authorSearch'onClick={props.findAuthor, props.keyword} type='submit'>Author Search</button>
 
         <input type="text" value={props.title} onChange={(event) =>props.setTitle(event.target.value)}/>
-        <button onClick={props.findTitle, props.keyword} type='submit'>Title Search</button>
+        <button className= 'titleSearch' onClick={props.findTitle, props.keyword} type='submit'>Title Search</button>
         </div>
     </form>    
 )
