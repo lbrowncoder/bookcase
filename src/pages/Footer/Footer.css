@@ -1,0 +1,15 @@
+
+.position-static {
+    border: 15px solid darkcyan;
+    background-color:darkcyan;
+    margin-top: auto;
+    display: flex;
+    color: white;
+}
+
+.list {
+    list-style-type: square;
+    color: white;
+
+   
+}

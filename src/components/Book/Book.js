@@ -8,15 +8,25 @@ const Book = (props) => {
 
    let {id, saleInfo: {listPrice} } = props.book
 
-   let amount = () => {
-     if (props.saleInfo("listPrice")) {
-       let amount = (props.saleInfo.listPrice.amount);
-       return amount; 
-     } else {
-       let amount = 'TBC';
-       return amount;
-     }
-   };
+
+//    let amount = () => {}
+//     (props.saleInfo("listPrice"));
+//     ? "props.saleInfo.listPrice.amount";
+//     : 'TBC';
+// };
+   
+   
+  //  old if/else statement
+  //  let amount = () => {
+  //    if (props.saleInfo("listPrice")) {
+  //      let amount = (props.saleInfo.listPrice.amount);
+  //      return amount; 
+  //    } else {
+  //      let amount = 'TBC';
+  //      return amount;
+  //    }
+  //  };
+   
   
    
   return (
@@ -31,20 +41,18 @@ const Book = (props) => {
       <p>£{listPrice && listPrice.amount}</p>
       </div>
  
-    
-
-      
       {props.addBook && (
       <Button className="buttonPop" onClick={() => props.addBook(title, id)}>Add To Bookcase</Button>)}
+
+      {props.addBook2 && (
+      <Button className="buttonPop" onClick={() => props.addBook2(title, id)}>Add To Basket</Button>)}   
       
-      {props.addToBasket && (
-      <Button className="buttonPop" onClick={() => props.addToBasket(id)}>Buy</Button>)}
-      
+
       {props.removeBook && (
       <Button className="buttonPop" onClick={() => props.removeBook(id)}>Remove</Button>)}
     </div>
-  );
-      }
+  )
+  
 
 Book.propTypes = {
   book: PropTypes.shape({
@@ -52,7 +60,7 @@ Book.propTypes = {
     volumeInfo: PropTypes.shape({
       title: PropTypes.string.isRequired,
   }),
-})}
+})}}
  
 
 export default Book;

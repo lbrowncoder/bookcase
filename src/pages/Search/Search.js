@@ -1,8 +1,6 @@
 import React from 'react';
 import '../Search/Search.css';
 
-
- 
 function Search (props) {
 
     function handleSubmit (event) {
@@ -12,20 +10,14 @@ function Search (props) {
     
     }
 
-     
-
     return (
     <>
     <div>
             <p className='find'>What will you discover next?</p>
         </div>
-        <form className='searchBar' onSubmit={handleSubmit}>
+            <form className='searchBar' onSubmit={handleSubmit}>
             <input type="text" value={props.keyword} onChange={(event)=>props.setKeyword(event.target.value)}/>
-            <button className='searchButton'>Quick Search</button>
-            {/* <button onClick={props.findCrime}>Crime Search</button> */}
-
-        
-            
+            <button className='searchButton1'>Quick Search</button>   
         </form>
     </>    
     );

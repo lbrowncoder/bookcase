@@ -118,6 +118,7 @@ margin-top: 15rem;
     position: relative;
     --border-size: 2px;
     --accent-colour: darkcyan;
+    margin-bottom: 2rem;
 }
 
 .searchButton::before {

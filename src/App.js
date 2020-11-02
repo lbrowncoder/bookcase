@@ -15,27 +15,25 @@ import './App.css';
 import AdvanceSearch from './pages/Search/AdvanceSearch';
 import Basket from './pages/Basket/Basket';
 import Footer from './pages/Footer/Footer';
-
-
+import { NavLink} from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 const App = (props) => {
- const [books, setBooks] = useState(data);
- const [keyword, setKeyword ] = useState('');
- const [bookcase, setBookcase] = useState([]);
- const [author, setAuthor] = useState('');
- const [title, setTitle] = useState('');
- const [basket, setBasket] = useState([]);
- const [page, setPage] = useState('')
- 
-
-
- 
+  const [books, setBooks] = useState(data);
+  const [keyword, setKeyword ] = useState('');
+  const [bookcase, setBookcase] = useState([]);
+  const [author, setAuthor] = useState('');
+  const [title, setTitle] = useState('');
+  const [basket, setBasket] = useState([]);
+  const [basketBooks, setBasketBooks] = useState(data);
+  const [page, setPage] = useState('');
+  
  function addBook (title, id) {
      const newBookList = books.filter(book => book.id !== id);
      const chosenBook = books.filter(book => book.id === id);
-    setBooks (newBookList);
-    setBookcase ([...bookcase, ...chosenBook]);
-    const remainingBooks = [];
+     setBooks (newBookList);
+     setBookcase ([...bookcase, ...chosenBook]);
+     const remainingBooks = [];
   }
 
   function removeBook (id) {
@@ -44,22 +42,23 @@ const App = (props) => {
   }
 
 //  add to basket function - not working
-const addToBasket = (id) => {
-  setBasket([...basket, ...id])
-  console.log('we are in basket')
 
-
-  
-  // const [page, setPage] = useState('bookProducts');
-
-    // const newBasket = books.filter(book => book.id !== id);
-    // const buyBook = books.filter(book => book.id === id)
-    // setBooks (newBasket);
-    // setBasket ([...basket, ...buyBook])
-    // const remainingBooks = [];
-  
+function addBook2 (title, id) {
+  const newBookList = books.filter(book => book.id !== id);
+  const chosenBook = books.filter(book => book.id === id);
+  setBooks (newBookList);
+  setBookcase ([...bookcase, ...chosenBook]);
+  const remainingBooks = [];
 }
-  
+
+  function newBasket (title, id) {
+    const newBasketItem = books.filter(book => book.id !== id);
+    const chosenBasketItem = books.filter(book => book.id === id);
+    setBasketBooks (newBasketItem);
+    setBasket ([...basket, ...chosenBasketItem]);   
+    const remaningBasket = [];
+  }
+
 // calls the book info from the API
   async function findBooks (term) {
       const result = await fetch (`https://www.googleapis.com/books/v1/volumes?q=${term}&filter=paid-ebooks&print-type=books&projection=lite`)
@@ -67,19 +66,18 @@ const addToBasket = (id) => {
       console.log (result)
       setBooks(result.items)
   }
-  // 
 
-async function findAuthor (value, authorValue) {
-  const result = await fetch (`https://www.googleapis.com/books/v1/volumes?q=${value}:${authorValue}`)
-  .then(res => res.json());
-  setBooks(result.items)
-}
+// async function findAuthor (value, authorValue) {
+//   const result = await fetch (`https://www.googleapis.com/books/v1/volumes?q=${value}:${authorValue}`)
+//   .then(res => res.json());
+//   setBooks(result.items)
+// }
 
-async function findTitle (value, titleValue) {
-  const result = await fetch (`https://www.googleapis.com/books/v1/volumes?q=${value}${titleValue}`)
-  .then(res => res.json());
-  setBooks(result.items)
-}
+// async function findTitle (value, titleValue) {
+//   const result = await fetch (`https://www.googleapis.com/books/v1/volumes?q=${value}${titleValue}`)
+//   .then(res => res.json());
+//   setBooks(result.items)
+// }
 
 
 //   useEffect(() => {
@@ -96,6 +94,10 @@ let bookcasePage = bookcase.length ===0
      ? <p className= "bookPage">Bookcase is empty- Add books to begin</p>
      : null;
 
+let basketPage = bookcase.length ==0
+? <p>Basket is empty</p>
+: <Button classname= 'basketButton'>Buy</Button>;
+
 
 // routing
   return (
@@ -108,11 +110,10 @@ let bookcasePage = bookcase.length ===0
         )}/>
             <Route exact path="/pages/Search" render={() => (
             <React.Fragment>
-            <Header /> 
             <p className='added'>Added to bookcase: {bookcase.length}</p>
+            <Header />         
             <Search findBooks={findBooks} keyword={keyword} setKeyword={setKeyword} />
-            <BookList books={books} addBook={addBook}/>
-            <BookList books={bookcase} removeBook={removeBook} addToBasket={addToBasket} />
+            <BookList books={bookcase} books={books} addBook={addBook} addBook2={addBook2} />
             < Footer />
             </React.Fragment> 
         )}/>
@@ -124,35 +125,43 @@ let bookcasePage = bookcase.length ===0
         )}/>
             <Route exact path="/pages/Contact" render={() => (
             <React.Fragment>
-            <Header />
+            <Header addBook={addBook} />
             <Contact />
             </React.Fragment> 
         )}/>
             <Route exact path="/pages/SubmittedForm" render={() => (
             <React.Fragment>
-            <Header />
+            <Header  />
             <SubmittedForm />
+            <Footer />
             </React.Fragment> 
         )}/>
             <Route path="/bookcase" render={() => (
             <React.Fragment>
-            <Header />
-            <p className='added'>Added to bookcase {bookcase.length}</p>
-            <button>Go To Basket {bookcase.length}</button>
-            {bookcasePage} {addToBasket}
-            <BookList books={bookcase} removeBook={removeBook} addToBasket={addToBasket} />
+            <p className='added'>Added to bookcase: {bookcase.length}</p>
+            <Header  />
+            <NavLink to='/pages/Basket/Basket'>
+            </NavLink>
+            {bookcasePage}
+            <BookList books={bookcase} removeBook={removeBook}/>
+            < Footer />
             </React.Fragment> 
         )}/>
             <Route exact path="/pages/AdvanceSearch" render={() => (
             <React.Fragment>
+            <p className='added'>Added to bookcase: {bookcase.length}</p>
             <Header />
-            <AdvanceSearch findBooks={findBooks} keyword={keyword} setKeyword={setKeyword} findAuthor={findAuthor} author={author} setAuthor={setAuthor} title={title} findTitle={findTitle} setTitle={setTitle} />
+            <AdvanceSearch books={bookcase} books={books} findBooks={findBooks} keyword={keyword} setKeyword={setKeyword}  author={author} setAuthor={setAuthor} title={title} setTitle={setTitle} />
+            <Footer />
             </React.Fragment> 
         )}/>   
           <Route exact path="/pages/Basket/Basket" render={() => (
             <React.Fragment>
             <Header />
-            <Basket addToBasket={addToBasket} />
+            <BookList books={bookcase} removeBook={removeBook} />
+            {basketPage}
+            {/* <Button onClick>Buy</Button> */}
+            <Footer />
             </React.Fragment>  
           )}/>
         </Router>
@@ -163,6 +172,7 @@ let bookcasePage = bookcase.length ===0
 
 
 ReactDOM.render(<App />,document.getElementById('root'));
+
 export default App;
 
 
