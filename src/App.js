@@ -55,11 +55,12 @@ const App = (props) => {
         .then(res => res.json());
         setBooks(result.items)
     }
-    async function findTitle() {
+
+     async function findTitle() {
         const result = await fetch(`https://www.googleapis.com/books/v1/volumes?q=title%${title}`)
         .then(res => res.json());
         setBooks(result.items)
-    }
+}
 
 //   useEffect(() => {
 //     findBooks();
@@ -77,7 +78,7 @@ const App = (props) => {
 
     let basketPage = bookcase.length ===0
         ? <p className='basketText'>Basket is empty</p>
-        : <Button classname= 'basketButton'>Buy</Button>;
+        : <Button classname='basketButton'>Buy</Button>;
 
 // routing
   return (
@@ -131,7 +132,7 @@ const App = (props) => {
             <React.Fragment>
             <p className='added'>Added to bookcase: {bookcase.length}</p>
             <Header />
-            <AdvanceSearch bookcase={bookcase} books={books} addBooks={addBook} keyword={keyword} setKeyword={setKeyword}  author={author} setAuthor={setAuthor} title={title} setTitle={setTitle} />
+            <AdvanceSearch book={bookcase} books={books} addBooks={addBook} keyword={keyword} setKeyword={setKeyword}  author={author} setAuthor={setAuthor} title={title} title={findTitle} findTitle={findTitle} />
             <Footer />
             </React.Fragment>  
             )}/>
@@ -140,6 +141,7 @@ const App = (props) => {
             <Header />
             <BookList books={bookcase} removeBook={removeBook} />
             {basketPage}
+            <Footer />
             </React.Fragment>  
           )}/>    
         </Router>

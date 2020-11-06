@@ -1,23 +1,27 @@
 import React from 'react';
+
 import { NavLink} from 'react-router-dom';
 import '../Footer/Footer.css';
 
-const Footer = () => {
+function Footer() { 
+    
     return (
         <React.Fragment>
-            <div className="footer navbar-fixed-bottom">
-                <div className="position-static">
-                    <ul>
-                        <li className='list'>
-                        <NavLink  className='list' to="/pages/About">About</NavLink>
+            <footer class="footer">
+                <div className="container-fluid">
+                    <ul className="list-unstyled">
+                        <li className="list">
+                        <NavLink className="details" to="/pages/About">About</NavLink>
                         </li>
-                        <li className='list'>
-                        <NavLink className='list' to="/pages/Contact">Contact</NavLink>
-                        </li> 
-                    </ul>           
-                </div>   
-            </div>
+                        <li className="list">
+                        <NavLink className="details" to="/pages/Contact">Contact</NavLink>
+                        </li>  
+                        <p className="text-xs-center">
+                    &copy;{new Date().getFullYear()} LB Desgins- All Rights Reservered</p>
+                    </ul> 
+                </div> 
+            </footer>
         </React.Fragment>    
-    )
-    }
+    )}
+
 export default Footer

@@ -26,15 +26,16 @@ const AdvanceSearch = (props) => {
     return (
             <div>
                 <form onSubmit={handleSearchSubmit}>
-                    <div>
+                    <div className="allSearch">
                         <p className="searchText">Search by Author or Title</p>
                         <div className="searchTabel">
                             
                             <input type="text" placeholder="Author"value={author} onChange={(event)=>setAuthor(event.target.value)}/>
                             <button className= 'authorSearch'onClick={() => findAuthor()} type='submit'>Author Search</button>
                         
-                            <input type="text" placeholder="Title" value={title} onChange={(event)=>setTitle(event.target.value)}/>
+                            <input type="text"  placeholder="Title" value={title} onChange={(event)=>setTitle(event.target.value)}/>
                             <button className= 'titleSearch'onClick={() => findTitle()} type='submit'>Title Search</button>
+
                         </div>
                     </div>
                 </form> 
