@@ -3,7 +3,7 @@ import Book from '../Book/Book';
 import Pagination from "react-js-pagination";
 import '../Booklist/BookList.css'
 
-const BookList = (props) => {
+const PageNumber = (props) => {
     const booksPerPage = 3
     const [activePage, setCurrentPage ] = useState(1)
     const pageofLastBook  = activePage * booksPerPage;
@@ -16,6 +16,7 @@ const BookList = (props) => {
     const pageChange = (pageNumber) => {
       setCurrentPage(pageNumber)
    };
+
     return (
       <>
       {displayBook}
@@ -24,8 +25,9 @@ const BookList = (props) => {
                  activePage={activePage}
                  itemsCountPerPage={2}
                  totalItemsCount={props.books.length}
-                 pageRangeDisplayed={4}
-                 onChange={pageChange}/>
+                 activePageNumber={'active hidden'} 
+                 pageRangeDisplayed={5}
+                 onChange={pageChange}/> 
            </div>
       </>
     );
@@ -41,7 +43,7 @@ const BookList = (props) => {
         </div>
      
     )}
-            }
+}
 
 
-export default BookList;
+export default PageNumber;

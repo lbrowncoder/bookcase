@@ -1,9 +1,6 @@
 import React from 'react';
 import '../About/About.css';
 
-
-
-
 let About = () => {
     return (
         <> 

@@ -85,4 +85,32 @@
     margin-top: 0.5rem;
 }
 
- 
+.buttonPopAdd {
+    margin-left: 56rem;
+    margin-top: -7rem;
+    margin-bottom: 3rem ;
+    position: relative;
+    --border-size: 2px;
+    --background-color: rgb(67, 134, 223);
+ } 
+
+.buttonPopAdd::before {
+content:'';
+position: absolute;
+top:0;
+left:0;
+right:0;
+bottom: 0;
+z-index: -1;
+border: var(--border-size) solid var(--background-color);
+border-radius: 6px;
+transition: top, left, right, bottom, 100ms ease-in-out;
+}
+
+.buttonPopAdd:hover::before,
+.buttonPopAdd:focus::before {
+top: calc(var(--border-size) * -4);
+left: calc(var(--border-size) * -4);
+right: calc(var(--border-size) * -4);
+bottom: calc(var(--border-size) * -4);
+}

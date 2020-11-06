@@ -1,34 +1,35 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'react-bootstrap';
 
 const Book = (props) => {
-  let {title, subtitle, authors, description, imageLinks} = props.book.volumeInfo
+  let {title, authors, description, imageLinks} = props.book.volumeInfo
     console.log(props.book)
-
    let {id, saleInfo: {listPrice} } = props.book
+   
+//  if/else statement
+   let amount = () => {
+     if (props.saleInfo("listPrice")) {
+       let amount = (props.saleInfo.listPrice.amount);
+       return amount; 
+     } else {
+       let amount = 'TBC';
+       return amount;
+     }
+   };
 
-
-//    let amount = () => {}
-//     (props.saleInfo("listPrice"));
-//     ? "props.saleInfo.listPrice.amount";
-//     : 'TBC';
-// };
-   
-   
-  //  old if/else statement
-  //  let amount = () => {
-  //    if (props.saleInfo("listPrice")) {
-  //      let amount = (props.saleInfo.listPrice.amount);
-  //      return amount; 
-  //    } else {
-  //      let amount = 'TBC';
-  //      return amount;
-  //    }
-  //  };
-   
-  
-   
+  const BookList = (props) => {
+    return (
+        <div>
+            {props.books.map(book => (
+               <>
+                <Book key={book.id} book={book} addBook={props.addBook} removeBook={props.removeBook} newBasket={props.newBasket} />
+              </>
+            ))}
+        </div>
+     
+    )}
+ 
   return (
     <div>
       <div className='box1'>
@@ -45,15 +46,13 @@ const Book = (props) => {
       <Button className="buttonPop" onClick={() => props.addBook(title, id)}>Add To Bookcase</Button>)}
 
       {props.addBook2 && (
-      <Button className="buttonPop" onClick={() => props.addBook2(title, id)}>Add To Basket</Button>)}   
-      
-
+      <Button className="buttonPopAdd" onClick={() => props.addBook2(title, id)}>Add To Basket</Button>)}   
+    
       {props.removeBook && (
       <Button className="buttonPop" onClick={() => props.removeBook(id)}>Remove</Button>)}
     </div>
   )
   
-
 Book.propTypes = {
   book: PropTypes.shape({
     id: PropTypes.string,
